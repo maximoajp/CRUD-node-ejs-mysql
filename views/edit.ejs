@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%=  title %></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+  </head>
+  <body class="container">
+
+    <h1><%= title%></h1>
+    <p>Bienvenido <%= title %></p>
+
+    <div class="row">
+      <div class="col-3">
+        <form action="/edit" method="post">
+          <input 
+          type="text"
+          name="nombre"
+          placeholder="nombre"
+          class="form-control mb-2"
+          id="nombre"
+          value="<%= results.nombre %>"
+          >
+          <textarea
+          type="text"
+          name="descripcion"
+          placeholder="descripcion"
+          class="form-control mb-2"
+          id="descripcion"
+          rows="10"
+          ><%= results.descripcion %></textarea>
+          <button type="submit" id="btn-add" class="btn btn-info mb-2">Guardar</button>
+          <a href="/" class="btn btn-secondary mb-2">Cancelar</a>
+
+          <input 
+          type="hidden"
+          name="id"
+          id="id"
+          value="<%= results.id %>"
+          >
+        </form>
+      </div>
+      <div class="col-8">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">nombre</th>
+              <th scope="col">descripcion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><%= results.id %></th>
+              <td><%= results.nombre %></td>
+              <td><%= results.descripcion %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
